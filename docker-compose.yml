@@ -9,7 +9,10 @@ services:
     volumes:
       - ./backend:/var/www
       - ./init.sh:/init.sh
+      - ./setup.sh:/setup.sh
     working_dir: /var/www
+    depends_on:
+      - mysql
     command: ["sh", "/init.sh"]
     networks:
       - laravel_network
