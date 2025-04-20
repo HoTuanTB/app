@@ -9,8 +9,4 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www
 
-COPY backend /var/www
-
-RUN composer install
-
-EXPOSE 9000
+CMD ["php-fpm"]
