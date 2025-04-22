@@ -30,4 +30,9 @@ class ShopifyOrderController extends Controller
 
         return response()->json(['message' => 'Orders synced successfully']);
     }
+
+    public function deleteAllOrders() {
+        Order::truncate();
+        return response()->json(['message' => 'Orders delete successfully']);
+    }
 }

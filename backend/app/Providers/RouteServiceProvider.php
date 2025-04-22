@@ -16,6 +16,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->webhookRoutes();
+        $this->apiRoutes();
 
     }
 
@@ -26,5 +27,14 @@ class RouteServiceProvider extends ServiceProvider
             ->namespace($this->namespace . '\Webhook')
             ->as('webhook.')
             ->group(base_path('routes/webhook.php'));
+    }
+
+    protected function apiRoutes()
+    {
+        Route::prefix('api')
+            ->middleware('api')
+            ->namespace($this->namespace . '\api')
+            ->as('api.')
+            ->group(base_path('routes/api.php'));
     }
 }

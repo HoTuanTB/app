@@ -9,4 +9,3 @@ use Shopify\Clients\Rest;
 //    return view('welcome');
 //});
 Route::get('/', [OrderController::class, 'getOrders']);
-Route::get('/sync-orders', [ShopifyOrderController::class, 'syncOrder']);
